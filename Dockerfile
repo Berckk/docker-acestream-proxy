@@ -17,8 +17,7 @@ RUN mkdir -p /var/log/supervisor
 
 RUN adduser --disabled-password --gecos "" tv
 
-RUN git clone https://github.com/ValdikSS/aceproxy.git
-RUN mv /home/tv/aceproxy /home/tv/aceproxy-master
+RUN cd /home/tv/ && git clone https://github.com/ValdikSS/aceproxy.git aceproxy-master
 
 RUN echo 'root:password' |chpasswd
 
