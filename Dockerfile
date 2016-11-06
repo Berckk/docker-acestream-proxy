@@ -1,5 +1,5 @@
 # Set the base image to use to Ubuntu
-FROM ubuntu:16.04.1
+FROM ubuntu:16.04
 
 MAINTAINER Igor Katson <igor.katson@gmail.com>
 
