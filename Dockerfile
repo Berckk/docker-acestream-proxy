@@ -4,9 +4,10 @@ FROM ubuntu:16.04
 MAINTAINER Igor Katson <igor.katson@gmail.com>
 
 RUN apt-get update -y
+RUN apt-get upgrade -y
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y wget supervisor unzip ca-certificates
 
-RUN echo 'deb http://repo.acestream.org/ubuntu/ xenial main' > /etc/apt/sources.list.d/acestream.list
+RUN echo 'deb http://repo.acestream.org/ubuntu/ trusty main' > /etc/apt/sources.list.d/acestream.list
 RUN wget -q -O - http://repo.acestream.org/keys/acestream.public.key | apt-key add -
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -y
 
