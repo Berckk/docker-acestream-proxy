@@ -3,14 +3,14 @@ FROM ubuntu:16.04
 
 MAINTAINER Igor Katson <igor.katson@gmail.com>
 
-RUN apt-get update -y
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y wget supervisor unzip ca-certificates
+RUN apt update -y
+RUN DEBIAN_FRONTEND=noninteractive apt install -y wget supervisor unzip ca-certificates
 
 RUN echo 'deb http://repo.acestream.org/ubuntu/ trusty main' > /etc/apt/sources.list.d/acestream.list
 RUN wget -q -O - http://repo.acestream.org/keys/acestream.public.key | apt-key add -
-RUN DEBIAN_FRONTEND=noninteractive apt-get update -y
+RUN DEBIAN_FRONTEND=noninteractive apt update -y
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y acestream-engine vlc-nox python-gevent
+RUN DEBIAN_FRONTEND=noninteractive apt install -y acestream-engine vlc-nox python-gevent
 
 RUN mkdir -p /var/run/sshd
 RUN mkdir -p /var/log/supervisor
