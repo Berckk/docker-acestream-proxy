@@ -20,18 +20,18 @@ Then just do something like this, to launch a proxy for Torrent-TV:
 1. Build the image.
    
   ```
-  docker build -t zveronline/aceproxy git://github.com/zveronline/docker-acestream-proxy.git
+  docker build -t berckk/aceproxy git://github.com/Berckk/docker-acestream-proxy.git
   ```
 
   OR download the binary one, this is faster
   
   ```
-  docker pull zveronline/aceproxy:latest
+  docker pull berckk/aceproxy:latest
   ```
 2. Run the TorrentTV proxy with your key.
   
   ```
-  docker run -t -p 8000:8000 zveronline/aceproxy
+  docker run -t -p 8000:8000 berckk/aceproxy
   ```
 3. Read AceProxy manual for usage instructions: https://github.com/ValdikSS/aceproxy/wiki.
 
@@ -41,7 +41,7 @@ Usage with Torrent-TV
 Copy the URL from "Мой Кабинет->Плейлист", and replace it here:
 
 ```
-docker run -t -p 8000:8000 zveronline/aceproxy http://api.torrent-tv.ru/....
+docker run -t -p 8000:8000 berckk/aceproxy http://api.torrent-tv.ru/....
 ```
 
 Then paste this URL into your player:
