@@ -23,6 +23,6 @@ ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 ADD start.sh /start.sh
 RUN chmod +x /start.sh
 
-EXPOSE 22 8000 62062
+EXPOSE 22 8000 8621 62062 9944 9903
 
 ENTRYPOINT ["/start.sh"]

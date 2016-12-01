@@ -43,6 +43,11 @@ Copy the URL from "Мой Кабинет->Плейлист", and replace it here
 ```
 docker run -t -p 8000:8000 berckk/aceproxy http://api.torrent-tv.ru/....
 ```
+or demon
+
+```
+docker run -d -p 8000:8000 berckk/aceproxy http://api.torrent-tv.ru/....
+```
 
 Then paste this URL into your player:
 ```
