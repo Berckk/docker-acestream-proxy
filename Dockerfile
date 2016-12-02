@@ -1,23 +1,28 @@
 # Set the base image to use to Ubuntu
 FROM ubuntu:16.04
 
-RUN apt-get update -y
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y git wget supervisor unzip ca-certificates
+# install base packages
+ENV DEBIAN_FRONTEND=noninteractive
+WORKDIR /tmp
 
-RUN echo 'deb http://repo.acestream.org/ubuntu/ trusty main' > /etc/apt/sources.list.d/acestream.list
-RUN wget -q -O - http://repo.acestream.org/keys/acestream.public.key | apt-key add -
-RUN DEBIAN_FRONTEND=noninteractive apt-get update -y
+RUN apt-get update -y &&  apt-get install -y git wget supervisor unzip ca-certificates && \
+   
+# install acestream-engine
+echo 'deb http://repo.acestream.org/ubuntu/ trusty main' > /etc/apt/sources.list.d/acestream.list && \
+wget -q -O - http://repo.acestream.org/keys/acestream.public.key | apt-key add - && \
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y acestream-engine vlc-nox python-gevent python-psutil
+apt-get update -y && \
+apt-get install -y acestream-engine vlc-nox python-gevent python-psutil && \
 
-RUN mkdir -p /var/run/sshd
-RUN mkdir -p /var/log/supervisor
+mkdir -p /var/run/sshd && \
+mkdir -p /var/log/supervisor && \
 
-RUN adduser --disabled-password --gecos "" tv
+# create user to run aceproxy
+adduser --disabled-password --gecos "" tv && \
 
-RUN cd /home/tv/ && git clone https://github.com/AndreyPavlenko/aceproxy.git aceproxy-master
+cd /home/tv/ && git clone https://github.com/AndreyPavlenko/aceproxy.git aceproxy-master && \
 
-RUN echo 'root:password' |chpasswd
+echo 'root:password' |chpasswd
 
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 ADD start.sh /start.sh
