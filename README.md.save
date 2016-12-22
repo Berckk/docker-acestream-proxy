@@ -1,4 +1,5 @@
-Docker-TTV
+Doc
+ker-TTV
 ==========
 
 A docker image to run aceengine + aceproxy, e.g. to watch Torrent-TV.ru.
@@ -45,10 +46,11 @@ docker run -d --name local_aceproxy -p 8000:8000 berckk/aceproxy http://api.torr
 ```
 
 ```
-docker stop local_aceproxy 
+docker stop local_aceproxy
 ```
+
 ```
-docker start local_aceproxy 
+docker start local_aceproxy
 ```
 
 
